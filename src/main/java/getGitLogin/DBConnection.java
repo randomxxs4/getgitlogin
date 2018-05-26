@@ -49,7 +49,7 @@ public class DBConnection implements AutoCloseable{
         }
 
         while (resultSet.next()){
-            if (resultSet.getString("login").equals(gitLogin)) {
+            if (resultSet.getString("login").trim().equals(gitLogin)) {
                 return true;
             }
         }
@@ -89,7 +89,7 @@ public class DBConnection implements AutoCloseable{
         Statement statement;
         try {
             statement = connection.createStatement();
-            statement.executeUpdate( "INSERT INTO git_users(login, id, score) values('"+gitLogin+"', "+id+", "+score+");");
+            statement.execute( "INSERT INTO git_users(login, id, score) values('"+gitLogin+"', "+id+", "+score+");");
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
