@@ -3,20 +3,19 @@ package getGitLogin;
 import org.postgresql.util.PSQLException;
 
 import java.sql.*;
-import java.util.List;
 
 public class DdlScript {
     private DBConnection dbConnection;
     private Statement statement;
 
     /**
-     * Instantiates a new Ddl script.
+     * Cоздает таблицу git_users в бд, если ее не существует.
      */
     public DdlScript() {
         try {
             dbConnection = new DBConnection();
             if (!checkExists()){
-                statement.execute("CREATE TABLE git_login(\n"
+                statement.execute("CREATE TABLE git_users(\n"
                         + "login CHAR(64),\n"
                         +"id INTEGER,\n"
                         +"score REAL);");
@@ -30,6 +29,9 @@ public class DdlScript {
         }
     }
 
+    /**
+     * Проверяет наличие таблицы git_users в базе.
+     */
     private boolean checkExists() throws SQLException {
         statement = dbConnection.getConnection().createStatement();
         ResultSet resultSet = statement.executeQuery("select * from pg_tables where tablename !~'^pg'; ");
