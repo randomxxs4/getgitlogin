@@ -11,7 +11,7 @@ public class Main {
         else if (args.length <=5 ){
             for (int i = 0; i < args.length; i++) {
                 int temp = i;
-                System.out.print(++temp + ". User Found: ");
+                System.out.print(++temp + ". ");
                 Search searcher = new Search();
                 searcher.search(args[i]);
             }
