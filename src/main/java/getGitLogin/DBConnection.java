@@ -10,15 +10,18 @@ public class DBConnection implements AutoCloseable{
     private static final String PASSWORD = "git";
     private Connection connection;
 
+
+    /**
+     * Instantiates a new Db connection.
+     */
     public DBConnection() {
         try {
             Driver driver = new org.postgresql.Driver();
             DriverManager.registerDriver(driver);
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (SQLException e) {
-            System.err.println("Failed to create connection" + e);
+            System.err.println("Failed !!!" + e);
         }
-
     }
 
     public Connection getConnection() {
@@ -57,13 +60,13 @@ public class DBConnection implements AutoCloseable{
     }
 
     /**
-     * Печатает на консоль данные пользователя гитхаб.
+     * Печатает на консоль данные пользователя гитхаб из базы данных.
      *
      * @param gitLogin логин на гитхаб
      */
     public void print(String gitLogin){
         Statement statement;
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         try {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM git_users WHERE login='"+gitLogin+"';");
