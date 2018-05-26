@@ -24,6 +24,7 @@ public class Search {
             if (userParameter.get(0).equals("0")){
                 System.out.println("Such a user does not exist! Please enter a different parameter!");
             }
+
             else if (userParameter.get(0).equals("1")){
                 if (dbConnection.CheckInDB(gitLogin)){
                     dbConnection.print(gitLogin);

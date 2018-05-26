@@ -35,23 +35,25 @@ public class DBConnection implements AutoCloseable{
      * @param gitLogin логин на гитхаб
      * @return true, если запись есть. false, если записи нет.
      */
-    public boolean CheckInDB(String gitLogin){
+    public boolean CheckInDB(String gitLogin) throws SQLException {
         Statement statement;
         ResultSet resultSet = null;
         try {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM git_users WHERE login='"+gitLogin+"';");
-            statement.close();
+
         } catch (PSQLException e){
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        if (resultSet != null){
-            return true;
+        while (resultSet.next()){
+            if (resultSet.getString("login").equals(gitLogin)) {
+                return true;
+            }
         }
-        else return false;
+        return false;
     }
 
     /**
@@ -87,7 +89,7 @@ public class DBConnection implements AutoCloseable{
         Statement statement;
         try {
             statement = connection.createStatement();
-            statement.execute( "INSERT INTO git_users(login, id, score) values('"+gitLogin+"', "+id+", "+score+");");
+            statement.executeUpdate( "INSERT INTO git_users(login, id, score) values('"+gitLogin+"', "+id+", "+score+");");
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
