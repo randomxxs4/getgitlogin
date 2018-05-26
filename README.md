@@ -10,4 +10,4 @@
 2) В командной строке выполнить команду "mvn install"
 3) Перейти в директорию \target.
 4) Для запуска проекта, выполнить в командной строке "java -jar getGitLogin-0.0.1.jar <параметры от 1 до 5>". (Например, 
-java -jar getGitLogin-0.0.1.jar sashamailru ivan fedor sasasasas122131ss testuser22013).
+"java -jar getGitLogin-0.0.1.jar sashamailru ivan fedor sasasasas122131ss testuser22013").
