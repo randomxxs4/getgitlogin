@@ -23,7 +23,7 @@ public class DdlScript {
             statement.close();
             dbConnection.getConnection().close();
         } catch (PSQLException e) {
-            System.err.println("Failed to create connection" + e);
+            System.err.println("Error in ddl script!" + e);
         } catch (SQLException e) {
             e.printStackTrace();
         }

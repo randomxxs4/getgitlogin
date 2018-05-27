@@ -20,7 +20,7 @@ public class DBConnection implements AutoCloseable{
             DriverManager.registerDriver(driver);
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (SQLException e) {
-            System.err.println("Failed !!!" + e);
+            System.err.println("Failed create db connection!!!" + e);
         }
     }
 
