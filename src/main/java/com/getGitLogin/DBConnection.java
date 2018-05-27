@@ -1,4 +1,4 @@
-package getGitLogin;
+package com.getGitLogin;
 
 import org.postgresql.util.PSQLException;
 
@@ -71,7 +71,7 @@ public class DBConnection implements AutoCloseable{
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM git_users WHERE login='"+gitLogin+"';");
             while (resultSet.next()) {
-                System.out.println(" User found: login={"+resultSet.getString("login").trim()
+                System.out.println("User found: login={"+resultSet.getString("login").trim()
                         +"} id={"+ resultSet.getInt("id")
                         +"} score={"+ resultSet.getDouble("score")+"}");
             }

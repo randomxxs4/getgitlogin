@@ -1,11 +1,7 @@
-package getGitLogin;
+package com.getGitLogin;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Search {
@@ -34,7 +30,7 @@ public class Search {
                     dbConnection.print(gitLogin);
                 }
                 else {
-                    System.out.println( "More than one result, please specify your username!");
+                    System.out.println("More than one result, please specify your username!");
                 }
                 httpConnection.getConnection().getInputStream().close();
                 dbConnection.getConnection().close();

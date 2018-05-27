@@ -24,7 +24,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>getGitLogin.Main</mainClass>
+                                    <mainClass>com.getGitLogin.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

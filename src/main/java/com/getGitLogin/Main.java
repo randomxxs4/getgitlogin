@@ -1,4 +1,4 @@
-package getGitLogin;
+package com.getGitLogin;
 
 import java.io.IOException;
 import java.util.regex.Matcher;

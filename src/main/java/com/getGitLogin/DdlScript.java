@@ -1,4 +1,4 @@
-package getGitLogin;
+package com.getGitLogin;
 
 import org.postgresql.util.PSQLException;
 

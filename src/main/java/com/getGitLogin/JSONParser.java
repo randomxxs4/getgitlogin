@@ -1,7 +1,6 @@
-package getGitLogin;
+package com.getGitLogin;
 
 import java.io.*;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.simple.JSONArray;

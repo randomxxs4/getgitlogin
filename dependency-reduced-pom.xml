@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>getGitLogin.Main</mainClass>
+                  <mainClass>com.getGitLogin.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>
